@@ -41,8 +41,8 @@ class Login extends Component {
       }
 
       const response = await fetch(loginApi, options)
+      const data = await response.json()
       if (response.ok) {
-        const data = await response.json()
         const jwtToken = data.jwt_token
         this.setState({
           userName: '',
@@ -51,8 +51,9 @@ class Login extends Component {
 
         this.loginSuccess(jwtToken)
       } else {
+        const error = data.error_msg
         this.setState({
-          errMsg: `Username or Password is Invalid`,
+          errMsg: error,
         })
       }
     }
@@ -76,8 +77,8 @@ class Login extends Component {
       'https://res.cloudinary.com/dtenfnygk/image/upload/v1698247802/gbvjhyvjvls6ymql2wgt.png'
 
     return (
-      <form onSubmit={this.submitForm} className="form">
-        <img src={bookHub} alt="book hub" className="book-hub" />
+      <form onSubmit={this.submitForm} name="form" className="form">
+        <img src={bookHub} alt="login website logo" className="book-hub" />
         <label htmlFor="user-name" className="user-name">
           Username*
         </label>
@@ -126,8 +127,8 @@ class Login extends Component {
     return (
       <div className="login-main-container">
         <div className="login-img-container">
-          <img src={loginImg} alt="login img" className="login-img" />
-          <img src={loginSmImg} alt="login img" className="login-sm-img" />
+          <img src={loginImg} alt="website login" className="login-img" />
+          <img src={loginSmImg} alt="website login" className="login-sm-img" />
         </div>
         <div className="form-container">{this.renderForm()}</div>
       </div>

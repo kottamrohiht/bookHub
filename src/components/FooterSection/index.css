@@ -1,0 +1,40 @@
+.footer-main-container {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ul-button-container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.social-list-item {
+  padding: 0px;
+  margin: 0px;
+}
+
+.social-button {
+  border: 0px;
+  background-color: transparent;
+  margin-right: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.contact-us {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-top: 5px;
+}

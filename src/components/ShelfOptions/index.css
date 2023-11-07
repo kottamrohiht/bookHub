@@ -1,0 +1,37 @@
+.shelf-button {
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin-right: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  border: 1px solid #387ebe;
+  color: #387ebe;
+  border-radius: 15px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+
+  @media (min-width: 768px) {
+    background-color: transparent;
+    border: 0px;
+    color: black;
+    padding: 0px;
+    margin: 5px;
+    font-size: 15px;
+    text-align: left;
+
+    width: 100%;
+  }
+}
+
+.selected {
+  color: white;
+  background-color: #387ebe;
+
+  @media (min-width: 768px) {
+    color: #387ebe;
+    background-color: transparent;
+  }
+}

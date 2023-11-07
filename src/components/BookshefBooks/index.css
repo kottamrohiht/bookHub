@@ -1,0 +1,99 @@
+.bookshelf-link-el {
+  width: 100vw;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: black;
+
+  @media (min-width: 768px) {
+    width: 50%;
+    height: 250px;
+  }
+}
+
+.each-book {
+  width: 100%;
+  height: 150px;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  margin-bottom: 15px;
+
+  @media (min-width: 768px) {
+    height: 100%;
+  }
+}
+
+.cover-pic {
+  height: 100%;
+  width: 35%;
+  border-radius: 5px;
+
+  @media (min-width: 768px) {
+    width: 40%;
+    height: 90%;
+  }
+}
+
+.list-second-container {
+  width: 50%;
+  margin-left: 10px;
+}
+
+.title {
+  font-size: 19px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.authorName {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.rating-avg {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  color: gray;
+}
+
+.BsFillStarFill {
+  color: gold;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.read-Status {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.readStatusEl {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  margin: 0px;
+  margin-bottom: 5px;
+  color: #387ebe;
+}

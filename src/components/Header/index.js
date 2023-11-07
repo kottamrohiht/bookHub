@@ -1,10 +1,12 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
-import Popup from 'reactjs-popup'
+import Cookies from 'js-cookie'
 
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {MdCancel} from 'react-icons/md'
+
+import HeaderItems from '../HeaderItems'
 
 import './index.css'
 
@@ -12,74 +14,98 @@ const options = [
   {
     id: 'HOME',
     displayText: 'Home',
+    path: '/',
   },
   {
     id: 'BOOKSHELVES',
     displayText: 'Bookshelves',
+    path: '/shelf',
   },
 ]
 
 class Header extends Component {
-    
+  state = {
+    showNav: false,
+  }
+
+  onClickLogout = () => {
+    Cookies.remove('jwt_token')
+
+    const {history} = this.props
+    history.replace('/login')
+  }
+
+  onClickMenu = () => {
+    this.setState(prevState => ({
+      showNav: !prevState.showNav,
+    }))
+  }
+
   render() {
+    const {showNav} = this.state
+    const navCss = showNav ? 'show-nav' : 'hide-nav'
+    const {path} = this.props
+
     const bookHub =
       'https://res.cloudinary.com/dtenfnygk/image/upload/v1698247802/gbvjhyvjvls6ymql2wgt.png'
     return (
       <div className="header-main-container">
         <Link to="/" className="book-img-link">
-          <img src={bookHub} alt="book hub" className="header-book-hub" />
+          <img src={bookHub} alt=" website logo" className="header-book-hub" />
         </Link>
 
-        <div className="popup-container">
-          <Popup
-            modal
-            trigger={
-              <button type="button" className="trigger-button">
-                <GiHamburgerMenu />
-              </button>
-            }
-          >
-            {close => (
-              <div className="nav-container">
-                <Link to="/" className="header-link">
-                  <li className="link-el"> Home </li>
-                </Link>
+        <button
+          onClick={this.onClickMenu}
+          type="button"
+          className="trigger-button"
+        >
+          <GiHamburgerMenu />
+        </button>
 
-                <Link to="/" className="header-link">
-                  <li className="link-el"> Bookshelves </li>
-                </Link>
+        <div className={`'popup-container-sm' ${navCss} `}>
+          <ul className="nav-container">
+            {options.map(each => (
+              <HeaderItems
+                key={each.id}
+                item={each}
+                isActive={each.id === path}
+              />
+            ))}
 
-                <button type="button" className="logout">
-                  Logout
-                </button>
-                <button
-                  onClick={() => close()}
-                  type="button"
-                  className="cancel"
-                >
-                  <MdCancel />
-                </button>
-              </div>
-            )}
-          </Popup>
+            <button
+              onClick={this.onClickLogout}
+              type="button"
+              className="logout"
+            >
+              Logout
+            </button>
+            <button onClick={this.onClickMenu} type="button" className="cancel">
+              <MdCancel />
+            </button>
+          </ul>
         </div>
 
-        <div className="header-link-md-container">
-          <Link to="/" className="book-img-link">
-            <li className="link-el"> Home </li>
-          </Link>
-
-          <Link to="/" className="book-img-link">
-            <li className="link-el"> Bookshelves </li>
-          </Link>
-
-          <button type="button" className="logout-md">
+        <nav className="header-link-md-container">
+          <ul className="header-items-container">
+            {options.map(each => (
+              <HeaderItems
+                key={each.id}
+                item={each}
+                isActive={path === each.id}
+              />
+            ))}
+          </ul>
+          <button
+            onClick={this.onClickLogout}
+            type="button"
+            className="logout-md"
+          >
             Logout
           </button>
-        </div>
+        </nav>
       </div>
     )
   }
 }
 
-export default Header
+export default withRouter(Header)
