@@ -90,7 +90,7 @@ class BookItemDetails extends Component {
     return (
       <div className="book-details-item-container">
         <div className="top-book-details-container">
-          <img src={coverPic} alt="cover pic" className="book-details-img" />
+          <img src={coverPic} alt={title} className="book-details-img" />
           <div>
             <h1 className="book-details-title"> {title} </h1>
             <p className="book-details-authorName"> {authorName} </p>

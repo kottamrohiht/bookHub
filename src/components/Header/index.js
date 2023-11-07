@@ -51,7 +51,7 @@ class Header extends Component {
     return (
       <div className="header-main-container">
         <Link to="/" className="book-img-link">
-          <img src={bookHub} alt=" website logo" className="header-book-hub" />
+          <img src={bookHub} alt="website logo" className="header-book-hub" />
         </Link>
 
         <button

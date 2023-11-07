@@ -122,9 +122,11 @@ class Home extends Component {
       <div className="home-fail-img-container">
         <img src={faiImgUrl} alt="failure view" className="fail-img" />
         <p className="went-wrong"> Something went wrong. Please try again </p>
-        <button type="button" onClick={this.onClickRetry} className="retry">
-          Try Again
-        </button>
+        <div data-testid="retry">
+          <button type="button" onClick={this.onClickRetry} className="retry">
+            Try Again
+          </button>
+        </div>
       </div>
     )
   }
@@ -173,8 +175,7 @@ class Home extends Component {
               <h1 className="top-rated-heading"> Top Rated Books </h1>
               <Link to="/shelf" className="find-books-link">
                 <button type="button" className="find-books-button">
-                  {' '}
-                  Find Books{' '}
+                  Find Books
                 </button>
               </Link>
             </div>

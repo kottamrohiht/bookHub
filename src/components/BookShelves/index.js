@@ -62,6 +62,7 @@ class BookShelves extends Component {
     })
 
     const {selectedOption, userInput} = this.state
+
     const jwtToken = Cookies.get('jwt_token')
     const bookApi = `https://apis.ccbp.in/book-hub/books?shelf=${selectedOption}&search=${userInput}`
     const options = {
@@ -129,15 +130,14 @@ class BookShelves extends Component {
       <div className="render-success-container-shelf">
         {booksListLen === 0 ? (
           <div className="no-result-container">
-            <img src={noResult} alt="no result" className="no-result" />
+            <img src={noResult} alt="no books" className="no-result" />
             <p className="no-result-para">
-              {' '}
-              Your search for {userInput} did not find any matches{' '}
+              Your search for {userInput} did not find any matches.
             </p>
           </div>
         ) : (
           <div testid="bookItem">
-            <ul className="each-book-item-container">
+            <ul testid="bookItem" className="each-book-item-container">
               {booksList.map(each => (
                 <BookshefBooks key={each.id} item={each} />
               ))}
@@ -165,9 +165,11 @@ class BookShelves extends Component {
       <div className="bookshel-fail-img-container">
         <img src={faiImgUrl} alt="failure view" className="fail-img" />
         <p className="went-wrong"> Something went wrong. Please try again </p>
-        <button type="button" onClick={this.onClickRetry} className="retry">
-          Try Again
-        </button>
+        <div data-testid="retry">
+          <button type="button" onClick={this.onClickRetry} className="retry">
+            Try Again
+          </button>
+        </div>
       </div>
     )
   }
@@ -204,14 +206,16 @@ class BookShelves extends Component {
                 value={userInput}
                 className="inputEl"
               />
-              <button
-                data-testid="searchButton"
-                onClick={this.onClickSearch}
-                type="button"
-                className="search-icon-container"
-              >
-                <BsSearch className="search-icon" />
-              </button>
+              <div className="searchButton" testid="searchButton">
+                <button
+                  data-testid="searchButton"
+                  onClick={this.onClickSearch}
+                  type="button"
+                  className="search-icon-container"
+                >
+                  <BsSearch className="search-icon" />
+                </button>
+              </div>
             </div>
             <h1 className="shelf-heading"> Bookshelves </h1>
             <ul className="shelf-options-container">
@@ -252,14 +256,16 @@ class BookShelves extends Component {
                   value={userInput}
                   className="inputEl"
                 />
-                <button
-                  data-testid="searchButton"
-                  onClick={this.onClickSearch}
-                  type="button"
-                  className="search-icon-container"
-                >
-                  <BsSearch className="search-icon" />
-                </button>
+                <div className="searchButton" data-testid="searchButton">
+                  <button
+                    testid="searchButton"
+                    onClick={this.onClickSearch}
+                    type="button"
+                    className="search-icon-container"
+                  >
+                    <BsSearch className="search-icon" />
+                  </button>
+                </div>
               </div>
             </div>
 

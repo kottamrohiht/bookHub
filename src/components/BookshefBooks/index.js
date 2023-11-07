@@ -9,7 +9,7 @@ const BookshefBooks = props => {
   const {id, coverPic, title, authorName, rating, readStatus} = item
 
   return (
-    <Link to={`/books/${id}`} className="bookshelf-link-el">
+    <Link testid="bookItem" to={`/books/${id}`} className="bookshelf-link-el">
       <li className="each-book">
         <img src={coverPic} alt={title} className="cover-pic" />
         <div className="list-second-container">
