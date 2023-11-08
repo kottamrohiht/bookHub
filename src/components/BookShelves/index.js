@@ -142,9 +142,6 @@ class BookShelves extends Component {
                 <BookshefBooks key={each.id} item={each} />
               ))}
             </ul>
-            <div className="shelf-footer-container">
-              <FooterSection />
-            </div>
           </div>
         )}
       </div>
@@ -165,8 +162,13 @@ class BookShelves extends Component {
       <div className="bookshel-fail-img-container">
         <img src={faiImgUrl} alt="failure view" className="fail-img" />
         <p className="went-wrong"> Something went wrong. Please try again </p>
-        <div data-testid="retry">
-          <button type="button" onClick={this.onClickRetry} className="retry">
+        <div testid="try again">
+          <button
+            testid="try again"
+            type="button"
+            onClick={this.onClickRetry}
+            className="retry"
+          >
             Try Again
           </button>
         </div>
@@ -206,9 +208,9 @@ class BookShelves extends Component {
                 value={userInput}
                 className="inputEl"
               />
-              <div className="searchButton" testid="searchButton">
+              <div testid="searchButton" className="searchButton">
                 <button
-                  data-testid="searchButton"
+                  testid="searchButton"
                   onClick={this.onClickSearch}
                   type="button"
                   className="search-icon-container"
@@ -256,7 +258,7 @@ class BookShelves extends Component {
                   value={userInput}
                   className="inputEl"
                 />
-                <div className="searchButton" data-testid="searchButton">
+                <div className="searchButton" testid="searchButton">
                   <button
                     testid="searchButton"
                     onClick={this.onClickSearch}

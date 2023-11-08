@@ -137,9 +137,16 @@ class BookItemDetails extends Component {
       <div className="fail-img-container">
         <img src={faiImgUrl} alt="failure view" className="fail-img" />
         <p className="went-wrong"> Something went wrong. Please try again </p>
-        <button type="button" onClick={this.onClickRetry} className="retry">
-          Try Again
-        </button>
+        <div testid="try again">
+          <button
+            testid="try again"
+            type="button"
+            onClick={this.onClickRetry}
+            className="retry"
+          >
+            Try Again
+          </button>
+        </div>
       </div>
     )
   }
